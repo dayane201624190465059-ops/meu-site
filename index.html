@@ -1,579 +1,704 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>Hexam2 Datacenter | Internet de alta performance</title>
-  <!-- Bootstrap 5 + Icons + CSS custom -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    :root {
-      --primary: #0a58ca;
-      --primary-dark: #0a3e7c;
-      --secondary: #00b4d8;
-      --accent: #f4a261;
-      --dark-bg: #0f172a;
-      --gray-bg: #f8f9fa;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Angela Maria de Sousa Oliveira | Conectividade e Soluções</title>
+    <!-- Bootstrap 5 + Icons + CSS Custom -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --primary-dark: #1a2632;
+            --secondary: #e67e22;
+            --accent: #f39c12;
+            --light-bg: #fef9e8;
+            --gray-bg: #f8f9fa;
+        }
 
-    body {
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
-      scroll-behavior: smooth;
-      color: #1e293b;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Navbar personalizada */
-    .navbar {
-      background-color: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(6px);
-      transition: all 0.3s;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-    }
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.8rem;
-      letter-spacing: -0.5px;
-    }
-    .navbar-brand span {
-      color: var(--secondary);
-    }
-    .nav-link {
-      font-weight: 500;
-      color: #e2e8f0 !important;
-      margin: 0 0.25rem;
-      transition: 0.2s;
-    }
-    .nav-link:hover, .nav-link.active {
-      color: var(--secondary) !important;
-    }
+        body {
+            font-family: 'Segoe UI', 'Roboto', system-ui, -apple-system, sans-serif;
+            color: #2c3e50;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, #0b1120 0%, #111827 100%);
-      padding: 120px 0 100px;
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 30%, rgba(0,180,216,0.12) 0%, rgba(0,0,0,0) 70%);
-    }
-    .hero h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      margin-bottom: 1.2rem;
-    }
-    .hero .highlight {
-      color: var(--secondary);
-      border-bottom: 3px solid var(--accent);
-      display: inline-block;
-    }
-    .btn-primary-custom {
-      background: var(--secondary);
-      border: none;
-      padding: 12px 32px;
-      font-weight: 600;
-      border-radius: 40px;
-      transition: all 0.3s;
-      color: #0f172a;
-    }
-    .btn-primary-custom:hover {
-      background: #0096c7;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,180,216,0.3);
-      color: white;
-    }
-    .btn-outline-light {
-      border-radius: 40px;
-      padding: 12px 28px;
-      font-weight: 500;
-    }
+        /* Navbar Personalizada */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 0.8rem 0;
+        }
 
-    /* Seção de planos e serviços */
-    .section-title {
-      font-weight: 700;
-      font-size: 2.2rem;
-      margin-bottom: 3rem;
-      position: relative;
-      display: inline-block;
-    }
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: 0;
-      width: 70px;
-      height: 4px;
-      background: var(--secondary);
-      border-radius: 4px;
-    }
-    .card-plan {
-      border: none;
-      border-radius: 28px;
-      transition: all 0.25s ease;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
-      overflow: hidden;
-    }
-    .card-plan:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-    }
-    .card-plan .card-header-custom {
-      background: var(--dark-bg);
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-    .price {
-      font-size: 2.7rem;
-      font-weight: 800;
-      color: var(--primary);
-    }
-    .price small {
-      font-size: 1rem;
-      font-weight: 400;
-    }
-    .feature-list i {
-      color: var(--secondary);
-      width: 28px;
-    }
-    .badge-popular {
-      background: var(--accent);
-      color: #1e293b;
-      font-weight: 600;
-      padding: 6px 18px;
-      border-radius: 40px;
-      font-size: 0.8rem;
-    }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.6rem;
+            letter-spacing: -0.3px;
+        }
 
-    /* Bloco de dados e informações legais */
-    .info-card {
-      background: white;
-      border-radius: 32px;
-      padding: 1.8rem;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-      border: 1px solid #eef2f6;
-      transition: 0.2s;
-      height: 100%;
-    }
-    .info-card i {
-      font-size: 2.2rem;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-    }
-    .info-card h5 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .cnpj-box {
-      font-family: monospace;
-      font-size: 1rem;
-      background: #f1f5f9;
-      padding: 6px 12px;
-      border-radius: 40px;
-      display: inline-block;
-    }
-    footer {
-      background: #0f172a;
-      color: #cbd5e1;
-    }
-    .social-icon {
-      background: rgba(255,255,255,0.1);
-      width: 40px;
-      height: 40px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      transition: 0.2s;
-      color: white;
-      margin-right: 12px;
-    }
-    .social-icon:hover {
-      background: var(--secondary);
-      transform: scale(1.08);
-      color: #0f172a;
-    }
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-      .section-title {
-        font-size: 1.8rem;
-      }
-    }
-    .btn-whatsapp-float {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #25d366;
-      color: white;
-      border-radius: 50px;
-      padding: 12px 20px;
-      font-weight: 600;
-      z-index: 99;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: 0.2s;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .btn-whatsapp-float:hover {
-      background: #128C7E;
-      transform: scale(1.02);
-      color: white;
-    }
-  </style>
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: rgba(255,255,255,0.9) !important;
+            margin: 0 0.25rem;
+            transition: all 0.3s;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--secondary) !important;
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fef9e8 0%, #fff4e4 100%);
+            padding: 100px 0 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero .highlight {
+            color: var(--secondary);
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-primary-custom {
+            background: var(--secondary);
+            border: none;
+            padding: 12px 32px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .btn-primary-custom:hover {
+            background: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(230,126,34,0.3);
+        }
+
+        .btn-outline-custom {
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            border-radius: 50px;
+            padding: 10px 28px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Seções */
+        .section-title {
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        /* Cards de Serviços */
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
+        }
+
+        .service-card i {
+            font-size: 2.8rem;
+            color: var(--secondary);
+            margin-bottom: 1.2rem;
+        }
+
+        .service-card h4 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: var(--light-bg);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: 0.2s;
+            height: 100%;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: #ecf0f1;
+            margin-top: auto;
+        }
+
+        .footer-link {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .footer-link:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: 0.3s;
+            color: white;
+        }
+
+        .social-icon:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        /* Páginas de conteúdo (Política e Termos) */
+        .content-page {
+            padding: 100px 0 70px;
+            min-height: 70vh;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+            padding: 2.5rem;
+            border: 1px solid #eef2f6;
+        }
+
+        .content-card h2 {
+            color: var(--primary);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .content-card h3 {
+            color: var(--secondary);
+            margin-top: 1.2rem;
+            font-size: 1.4rem;
+        }
+
+        .content-card p, .content-card li {
+            line-height: 1.7;
+            color: #4a5568;
+        }
+
+        .back-home {
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .content-card {
+                padding: 1.5rem;
+            }
+        }
+
+        .btn-whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 22px;
+            font-weight: 600;
+            z-index: 99;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-whatsapp-float:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .cnpj-badge {
+            font-family: monospace;
+            background: #ecf0f1;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Hexam2<span>Datacenter</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" href="#home">Início</a></li>
-        <li class="nav-item"><a class="nav-link" href="#planos">Planos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
-        <li class="nav-item"><a class="nav-link" href="#informacoes">Dados Legais</a></li>
-      </ul>
+<!-- Navegação Principal -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Angela<span>Tech</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="politica-privacidade.html">Política de Privacidade</a></li>
+                <li class="nav-item"><a class="nav-link" href="termos-uso.html">Termos de Uso</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-  <div class="container position-relative">
-    <div class="row align-items-center">
-      <div class="col-lg-7 mb-4 mb-lg-0">
-        <h1>Conectividade que <span class="highlight">impulsiona</span> seu negócio e sua casa</h1>
-        <p class="lead mb-4">Fibra óptica de altíssima performance, suporte local e a confiabilidade que você merece. Seja bem-vindo à experiência Hexam2 Datacenter.</p>
-        <div class="d-flex flex-wrap gap-3">
-          <a href="#planos" class="btn btn-primary-custom btn-lg"><i class="fas fa-tachometer-alt me-2"></i>Ver planos</a>
-          <a href="https://wa.me/552130306400?text=Olá%2C%20gostaria%20de%20mais%20informações%20sobre%20os%20planos%20de%20internet!" class="btn btn-outline-light btn-lg" target="_blank"><i class="fab fa-whatsapp me-2"></i>Fale com especialista</a>
-        </div>
-        <div class="mt-4 d-flex gap-4 flex-wrap">
-          <div><i class="fas fa-check-circle text-secondary"></i> <strong>Fibra 100%</strong></div>
-          <div><i class="fas fa-check-circle text-secondary"></i> <strong>Suporte 24h</strong></div>
-          <div><i class="fas fa-check-circle text-secondary"></i> <strong>Rede própria</strong></div>
-        </div>
-      </div>
-      <div class="col-lg-5 text-center">
-        <i class="fas fa-globe fa-5x text-secondary opacity-75"></i>
-        <i class="fas fa-wifi fa-4x d-block mt-3 text-white-50"></i>
-        <div class="mt-3 bg-white bg-opacity-10 rounded-4 p-3 d-inline-block">
-          <span class="fw-bold">📡 Niterói e região</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Planos e serviços -->
-<section id="planos" class="py-5 bg-light">
-  <div class="container py-4">
-    <div class="text-center mb-5">
-      <h2 class="section-title">Planos que cabem no seu bolso</h2>
-      <p class="text-muted">Internet fibra óptica com velocidades simétricas, estabilidade e suporte técnico especializado</p>
-    </div>
-    <div class="row g-4">
-      <!-- Plano 1 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-plan h-100">
-          <div class="card-header-custom">Plano Essencial</div>
-          <div class="card-body p-4">
-            <div class="price">R$ 89,90 <small>/mês</small></div>
-            <hr>
-            <ul class="list-unstyled feature-list mt-3">
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> 300 Mega (Fibra)</li>
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Wi-Fi 6 incluso</li>
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Suporte remoto gratuito</li>
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Cobertura Niterói Centro</li>
-            </ul>
-            <a href="#contato" class="btn btn-outline-primary w-100 mt-3 rounded-pill">Assine já</a>
-          </div>
-        </div>
-      </div>
-      <!-- Plano 2 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-plan h-100 border border-secondary border-opacity-25">
-          <div class="card-header-custom bg-dark" style="background: #1e2a3e!important;">Plano Ultra <span class="badge-popular ms-2">+Popular</span></div>
-          <div class="card-body p-4">
-            <div class="price">R$ 129,90 <small>/mês</small></div>
-            <hr>
-            <ul class="list-unstyled feature-list mt-3">
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> 600 Mega (Fibra Full)</li>
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Roteador Mesh incluso</li>
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Suporte técnico prioritário</li>
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Instalação gratuita</li>
-            </ul>
-            <a href="#contato" class="btn btn-primary-custom w-100 mt-3 rounded-pill">Contratar</a>
-          </div>
-        </div>
-      </div>
-      <!-- Plano 3 -->
-      <div class="col-md-6 col-lg-4">
-        <div class="card card-plan h-100">
-          <div class="card-header-custom">Plano Gamer + Empresas</div>
-          <div class="card-body p-4">
-            <div class="price">R$ 189,90 <small>/mês</small></div>
-            <hr>
-            <ul class="list-unstyled feature-list mt-3">
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> 1 GIGA (1000 Mega)</li>
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Link dedicado e baixa latência</li>
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> IP Fixo opcional</li>
-              <li class="mb-2"><i class="fas fa-check-circle me-2"></i> Suporte 24h via WhatsApp</li>
-            </ul>
-            <a href="#contato" class="btn btn-outline-primary w-100 mt-3 rounded-pill">Falar com consultor</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-5">
-      <i class="fas fa-shield-alt text-secondary me-2"></i> <span class="fw-semibold">Todos os planos incluem segurança digital e manutenção preventiva</span>
-    </div>
-  </div>
-</section>
-
-<!-- Sobre + Diferenciais com ícones e frases -->
-<section id="sobre" class="py-5">
-  <div class="container">
-    <div class="row g-5 align-items-center">
-      <div class="col-lg-6">
-        <h2 class="section-title mb-4">Por que escolher a Hexam2?</h2>
-        <p class="lead">Mais de 5 anos de experiência no mercado de telecom, agora com CNPJ ativo e estrutura robusta no coração de Niterói.</p>
-        <div class="row mt-4">
-          <div class="col-sm-6 mb-3">
-            <div class="d-flex"><i class="fas fa-tachometer-alt fa-2x text-secondary me-3"></i><div><strong>Baixa latência</strong><br>Ideal para games e home office</div></div>
-          </div>
-          <div class="col-sm-6 mb-3">
-            <div class="d-flex"><i class="fas fa-headset fa-2x text-secondary me-3"></i><div><strong>Suporte local</strong><br>Atendimento ágil e humanizado</div></div>
-          </div>
-          <div class="col-sm-6 mb-3">
-            <div class="d-flex"><i class="fas fa-chart-line fa-2x text-secondary me-3"></i><div><strong>99% de estabilidade</strong><br>Rede monitorada 24/7</div></div>
-          </div>
-          <div class="col-sm-6 mb-3">
-            <div class="d-flex"><i class="fas fa-map-marker-alt fa-2x text-secondary me-3"></i><div><strong>Fibra até sua porta</strong><br>Expansão contínua em Niterói</div></div>
-          </div>
-        </div>
-        <blockquote class="mt-3 border-start border-4 border-secondary ps-3 fst-italic">"Inovação e compromisso com a qualidade para manter você sempre conectado."</blockquote>
-      </div>
-      <div class="col-lg-6">
-        <div class="info-card bg-light">
-          <i class="fas fa-building"></i>
-          <h5>Hexam2 Datacenter</h5>
-          <p><strong>Razão Social:</strong> M V Vargas Provedor Internet LTDA<br>
-          <strong>CNPJ:</strong> 44.130.788/0001-26<br>
-          <strong>Data de Abertura / Situação Cadastral:</strong> 08/01/2024 (Ativa)<br>
-          <strong>Endereço Matriz:</strong> Rua Dr. Celestino 122, Sala 611, Centro, Niterói - RJ, CEP: 24020-090</p>
-          <hr>
-          <div class="d-flex flex-wrap gap-3 mt-2">
-            <span class="badge bg-secondary bg-opacity-25 text-dark p-2"><i class="fas fa-check-circle text-success"></i> Regular</span>
-            <span class="badge bg-secondary bg-opacity-25 text-dark p-2"><i class="fas fa-database"></i> Datacenter próprio</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Seção de informações legais + ícones e dados da empresa -->
-<section id="informacoes" class="py-5 bg-light">
-  <div class="container">
-    <div class="text-center mb-5">
-      <h2 class="section-title">Informações institucionais</h2>
-      <p>Transparência e credibilidade: dados oficiais da nossa empresa</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
-        <div class="info-card text-center">
-          <i class="fas fa-calendar-alt"></i>
-          <h5>Situação Cadastral</h5>
-          <p class="mb-0 fw-bold">08/01/2024</p>
-          <small>Ativa | Regular perante a Receita Federal</small>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="info-card text-center">
-          <i class="fas fa-id-card"></i>
-          <h5>CNPJ</h5>
-          <p class="mb-0 cnpj-box">44.130.788/0001-26</p>
-          <small class="d-block mt-2">Matriz única</small>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="info-card text-center">
-          <i class="fas fa-store"></i>
-          <h5>Razão Social</h5>
-          <p class="mb-0">M V Vargas Provedor Internet LTDA</p>
-          <small>Nome Fantasia: Hexam2 Datacenter</small>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="info-card text-center">
-          <i class="fas fa-map-pin"></i>
-          <h5>Localização</h5>
-          <p class="mb-0">Rua Dr. Celestino 122, Sala 611<br>Centro, Niterói - RJ<br>CEP: 24020-090</p>
-        </div>
-      </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-12">
-        <div class="info-card text-center bg-white">
-          <i class="fas fa-phone-alt fa-fw me-2"></i> <strong>Central de Atendimento:</strong> (21) 3030-6400  
-          <i class="fab fa-whatsapp ms-3 me-1 text-success"></i> <strong>WhatsApp:</strong> (21) 3030-6400  |  
-          <i class="fas fa-envelope ms-2 me-1"></i> suporte@hexam2datacenter.com.br
-          <div class="mt-2 small text-muted">Horário comercial: seg-sex 8h às 18h | Suporte técnico 24h via chat e WhatsApp</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contato e Formulário rápido -->
-<section id="contato" class="py-5">
-  <div class="container">
-    <div class="row g-5">
-      <div class="col-lg-5">
-        <h2 class="section-title mb-4">Fale com a gente</h2>
-        <p class="mb-4">Tire suas dúvidas, solicite segunda via, agende instalação ou peça um plano personalizado para sua empresa.</p>
-        <div class="d-flex align-items-center mb-3">
-          <i class="fas fa-map-marker-alt fa-2x text-secondary me-3"></i>
-          <div><strong>Endereço comercial</strong><br>Rua Dr. Celestino 122, Sala 611, Centro, Niterói RJ</div>
-        </div>
-        <div class="d-flex align-items-center mb-3">
-          <i class="fas fa-phone-alt fa-2x text-secondary me-3"></i>
-          <div><strong>Telefone</strong><br>(21) 3030-6400</div>
-        </div>
-        <div class="d-flex align-items-center mb-3">
-          <i class="fab fa-whatsapp fa-2x text-secondary me-3"></i>
-          <div><strong>WhatsApp oficial</strong><br>(21) 3030-6400</div>
-        </div>
-        <div class="mt-4">
-          <a href="https://wa.me/552130306400?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20assinar%20um%20plano!" class="btn btn-primary-custom rounded-pill px-4" target="_blank"><i class="fab fa-whatsapp me-2"></i> Chamar no WhatsApp</a>
-        </div>
-      </div>
-      <div class="col-lg-7">
-        <div class="info-card p-4">
-          <h5 class="mb-3"><i class="fas fa-paper-plane me-2"></i>Envie uma mensagem rápida</h5>
-          <form action="#" method="post" id="formContato">
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Nome completo</label>
-                <input type="text" class="form-control" placeholder="Seu nome" required>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Telefone / WhatsApp</label>
-                <input type="tel" class="form-control" placeholder="(21) 9xxxx-xxxx" required>
-              </div>
-              <div class="col-12">
-                <label class="form-label">E-mail</label>
-                <input type="email" class="form-control" placeholder="contato@exemplo.com">
-              </div>
-              <div class="col-12">
-                <label class="form-label">Mensagem</label>
-                <textarea class="form-control" rows="3" placeholder="Gostaria de contratar internet, tirar dúvidas..."></textarea>
-              </div>
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary-custom px-5 rounded-pill"><i class="fas fa-envelope me-2"></i>Enviar</button>
-              </div>
-              <div class="col-12 small text-muted">Responderemos em até 2h úteis.</div>
+<!-- PÁGINA HOME -->
+<div id="home-page">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-4 mb-lg-0">
+                    <h1>Conectando você ao futuro com <span class="highlight">segurança e qualidade</span></h1>
+                    <p class="lead mb-4">Soluções personalizadas em internet, suporte técnico e consultoria digital. Compromisso com a excelência e atendimento humanizado em Paracatu e região.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="https://wa.me/5538999252276?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informações!" class="btn btn-primary-custom" target="_blank"><i class="fab fa-whatsapp me-2"></i>Fale Conosco</a>
+                        <a href="#servicos" class="btn btn-outline-custom">Nossos Serviços</a>
+                    </div>
+                    <div class="mt-4 d-flex flex-wrap gap-4">
+                        <div><i class="fas fa-check-circle text-secondary"></i> <strong>Atendimento Personalizado</strong></div>
+                        <div><i class="fas fa-check-circle text-secondary"></i> <strong>Suporte Ágil</strong></div>
+                        <div><i class="fas fa-check-circle text-secondary"></i> <strong>Tecnologia de Ponta</strong></div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <i class="fas fa-network-wired fa-5x text-secondary opacity-75"></i>
+                    <i class="fas fa-shield-alt fa-4x d-block mt-3" style="color: #e67e22;"></i>
+                    <div class="mt-3 bg-white rounded-4 p-3 d-inline-block shadow-sm">
+                        <span class="fw-bold"><i class="fas fa-map-marker-alt me-1"></i> Paracatu - MG</span>
+                    </div>
+                </div>
             </div>
-          </form>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Footer completo -->
-<footer class="pt-5 pb-4">
-  <div class="container">
-    <div class="row gy-4">
-      <div class="col-md-4">
-        <h4 class="fw-bold text-white">Hexam2<span class="text-secondary">Datacenter</span></h4>
-        <p>Internet fibra óptica com excelência, suporte ágil e compromisso com Niterói e região.</p>
-        <div>
-          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+    <!-- Serviços / Diferenciais -->
+    <section id="servicos" class="py-5">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <p class="text-muted">Soluções completas para conectar sua casa ou empresa com excelência</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card text-center">
+                        <i class="fas fa-wifi"></i>
+                        <h4>Internet Fibra Óptica</h4>
+                        <p>Alta velocidade e estabilidade para você navegar, trabalhar e se divertir sem interrupções.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card text-center">
+                        <i class="fas fa-headset"></i>
+                        <h4>Suporte Técnico</h4>
+                        <p>Atendimento especializado e rápido para resolver problemas de rede, equipamentos e configurações.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card text-center">
+                        <i class="fas fa-chalkboard-user"></i>
+                        <h4>Consultoria Digital</h4>
+                        <p>Orientação para pequenos negócios e residências sobre melhor uso da tecnologia.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <h5 class="fw-semibold">Links úteis</h5>
-        <ul class="list-unstyled">
-          <li><a href="#planos" class="text-decoration-none text-secondary-emphasis">Planos e preços</a></li>
-          <li><a href="#sobre" class="text-decoration-none text-secondary-emphasis">Sobre a empresa</a></li>
-          <li><a href="#informacoes" class="text-decoration-none text-secondary-emphasis">CNPJ e dados fiscais</a></li>
-          <li><a href="#contato" class="text-decoration-none text-secondary-emphasis">Central de atendimento</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h5 class="fw-semibold">Contato oficial</h5>
-        <p><i class="fas fa-phone me-2"></i> (21) 3030-6400<br>
-        <i class="fab fa-whatsapp me-2"></i> (21) 3030-6400<br>
-        <i class="fas fa-envelope me-2"></i> contato@hexam2datacenter.com.br<br>
-        <i class="fas fa-map-marker-alt me-2"></i> Rua Dr. Celestino 122, Sala 611 - Centro, Niterói/RJ</p>
-        <small class="text-muted">CNPJ: 44.130.788/0001-26 — Situação cadastral ativa desde 08/01/2024.</small>
-      </div>
+    </section>
+
+    <!-- Sobre e Dados da Empresa -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">Sobre nós</h2>
+                    <p class="lead">Compromisso, ética e inovação desde 2020.</p>
+                    <p>A <strong>Angela Maria de Sousa Oliveira</strong> atua no mercado de telecomunicações e serviços de internet, oferecendo conectividade de qualidade para residências e empresas em Paracatu/MG e região. Nossa missão é proporcionar a melhor experiência digital com atendimento próximo e soluções sob medida.</p>
+                    <div class="row mt-4">
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex"><i class="fas fa-calendar-check fa-2x text-secondary me-3"></i><div><strong>Atuação desde 2020</strong><br>Mais de 5 anos de experiência</div></div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="d-flex"><i class="fas fa-handshake fa-2x text-secondary me-3"></i><div><strong>Compromisso</strong><br>Atendimento humanizado</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="info-card">
+                        <i class="fas fa-building"></i>
+                        <h5>Dados Institucionais</h5>
+                        <p><strong>Razão Social:</strong> Angela Maria de Sousa Oliveira<br>
+                        <strong>Nome Fantasia:</strong> AngelaTech Soluções em Internet<br>
+                        <strong>CNPJ:</strong> 36.445.173/0001-60<br>
+                        <strong>Data de Abertura / Situação Cadastral:</strong> 20/02/2020 (Ativa)<br>
+                        <strong>Endereço:</strong> Rua E 191, Primavera II, Paracatu - MG, CEP: 38600-970</p>
+                        <hr>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-secondary bg-opacity-25 text-dark p-2"><i class="fas fa-check-circle text-success"></i> Regular</span>
+                            <span class="badge bg-secondary bg-opacity-25 text-dark p-2"><i class="fas fa-phone-alt"></i> (38) 99925-2276</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato / Localização -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <h2 class="section-title">Entre em contato</h2>
+                    <p>Estamos prontos para atender você. Tire dúvidas, solicite suporte ou faça sua adesão aos nossos serviços.</p>
+                    <div class="mt-4">
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-phone-alt fa-2x text-secondary me-3"></i>
+                            <div><strong>Telefone / WhatsApp</strong><br>(38) 99925-2276</div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-envelope fa-2x text-secondary me-3"></i>
+                            <div><strong>E-mail</strong><br>contato@angelatech.com.br</div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <i class="fas fa-map-marker-alt fa-2x text-secondary me-3"></i>
+                            <div><strong>Endereço</strong><br>Rua E 191, Primavera II, Paracatu - MG, CEP: 38600-970</div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5538999252276?text=Olá%2C%20gostaria%20de%20informações%20sobre%20os%20serviços!" class="btn btn-primary-custom mt-3" target="_blank"><i class="fab fa-whatsapp me-2"></i>Chamar no WhatsApp</a>
+                </div>
+                <div class="col-lg-7">
+                    <div class="info-card bg-white">
+                        <h5><i class="fas fa-paper-plane me-2"></i>Envie uma mensagem rápida</h5>
+                        <form id="formContatoHome">
+                            <div class="row g-3 mt-2">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Seu nome" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="tel" class="form-control" placeholder="(38) 9xxxx-xxxx" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control" placeholder="Seu e-mail">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="3" placeholder="Como podemos ajudar?"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary-custom px-4">Enviar mensagem <i class="fas fa-arrow-right ms-2"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                        <small class="text-muted mt-3 d-block">Responderemos em até 24h úteis.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- RODAPÉ (comum a todas as páginas) -->
+<footer>
+    <div class="container pt-4 pb-3">
+        <div class="row gy-4">
+            <div class="col-md-4">
+                <h5 class="fw-bold text-white">Angela<span style="color:#e67e22;">Tech</span></h5>
+                <p class="small">Soluções em internet e tecnologia com atendimento humanizado e compromisso com a qualidade.</p>
+                <div>
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h6 class="fw-bold">Links Rápidos</h6>
+                <ul class="list-unstyled">
+                    <li><a href="index.html" class="footer-link">Home</a></li>
+                    <li><a href="politica-privacidade.html" class="footer-link">Política de Privacidade</a></li>
+                    <li><a href="termos-uso.html" class="footer-link">Termos de Uso</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h6 class="fw-bold">Contato</h6>
+                <p class="small mb-1"><i class="fas fa-phone me-2"></i> (38) 99925-2276</p>
+                <p class="small mb-1"><i class="fas fa-map-marker-alt me-2"></i> Rua E 191, Primavera II - Paracatu/MG</p>
+                <p class="small"><i class="fas fa-id-card me-2"></i> CNPJ: 36.445.173/0001-60</p>
+                <small class="text-muted">Situação Cadastral: 20/02/2020 (Ativa)</small>
+            </div>
+        </div>
+        <hr class="mt-3 bg-secondary">
+        <div class="text-center small py-2">
+            &copy; 2025 Angela Maria de Sousa Oliveira - Todos os direitos reservados. | Desenvolvido para conectar pessoas.
+        </div>
     </div>
-    <hr class="mt-4 bg-secondary">
-    <div class="text-center pt-3 small">
-      &copy; 2025 Hexam2 Datacenter | M V Vargas Provedor Internet LTDA | Todos os direitos reservados. Desenvolvido com fibra óptica e dedicação.
-    </div>
-  </div>
 </footer>
 
-<!-- Botão flutuante WhatsApp -->
-<a href="https://wa.me/552130306400?text=Olá%20vim%20do%20site%20e%20gostaria%20de%20informações%20sobre%20os%20planos!" class="btn-whatsapp-float" target="_blank">
-  <i class="fab fa-whatsapp fa-lg"></i> Fale conosco
+<!-- Botão WhatsApp flutuante -->
+<a href="https://wa.me/5538999252276?text=Olá%2C%20vim%20pelo%20site%20e%20gostaria%20de%20informações!" class="btn-whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp fa-lg"></i> Fale conosco
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // Pequeno script para ativar link ativo no scroll (efeito simples)
-  const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollY = window.scrollY;
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      const sectionHeight = section.offsetHeight;
-      if(scrollY >= sectionTop && scrollY < sectionTop + sectionHeight){
-        current = section.getAttribute('id');
-      }
+    // Simples envio de formulário
+    const formHome = document.getElementById('formContatoHome');
+    if(formHome) {
+        formHome.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            formHome.reset();
+        });
+    }
+
+    // Ativar link ativo no menu baseado na página atual
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if(href === 'index.html' && (currentPath === '/' || currentPath.endsWith('index.html') || currentPath === '' || currentPath.endsWith('/'))) {
+            link.classList.add('active');
+        } else if(href && currentPath.includes(href)) {
+            link.classList.add('active');
+        }
     });
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-      link.classList.remove('active');
-      if(link.getAttribute('href') === `#${current}`){
-        link.classList.add('active');
-      }
-    });
-  });
-  // Simples alert para envio do formulário
-  const form = document.querySelector('#formContato');
-  if(form){
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Mensagem enviada com sucesso! Em breve nosso time de especialistas entrará em contato.');
-      form.reset();
-    });
-  }
+</script>
+
+<!-- PÁGINA POLÍTICA DE PRIVACIDADE (conteúdo separado mas no mesmo arquivo para demonstrar 3 páginas, iremos usar condição de exibição via JS, mas por boas práticas crio estrutura de 3 arquivos virtuais, mas neste código único simulamos via sections? Porém para garantir entrega correta: vou incluir código condicional de rota usando hash? Melhor gerar 3 páginas distintas: farei seções ocultas? Não, o ideal é entregar 3 páginas separadas. Como a plataforma exige um único código HTML, vou gerar um sistema de rotas simples com hash ou query string, mas para atender pedido "criar 3 páginas: Home, Política e Termos" de forma clara, vou adicionar um sistema de navegação SPA leve, mostrando o conteúdo correto com base no parâmetro ?page. Isso garante visualização das 3 páginas em um só arquivo, mantendo estrutura completa. -->
+
+<!-- SISTEMA DE ROTEAMENTO PARA 3 PÁGINAS (Home, Política, Termos) -->
+<script>
+    (function() {
+        // Função para mostrar a página correta
+        function showPage(page) {
+            const homeDiv = document.getElementById('home-page');
+            const politicaDiv = document.getElementById('politica-page');
+            const termosDiv = document.getElementById('termos-page');
+            
+            if(!homeDiv || !politicaDiv || !termosDiv) return;
+            
+            homeDiv.style.display = 'none';
+            politicaDiv.style.display = 'none';
+            termosDiv.style.display = 'none';
+            
+            if(page === 'politica') {
+                politicaDiv.style.display = 'block';
+                document.title = 'Política de Privacidade | AngelaTech';
+            } else if(page === 'termos') {
+                termosDiv.style.display = 'block';
+                document.title = 'Termos de Uso | AngelaTech';
+            } else {
+                homeDiv.style.display = 'block';
+                document.title = 'AngelaTech | Conectividade e Soluções';
+            }
+            
+            // Atualizar links ativos do menu
+            const navs = document.querySelectorAll('.navbar-nav .nav-link');
+            navs.forEach(link => {
+                link.classList.remove('active');
+                const href = link.getAttribute('href');
+                if(page === 'home' && (href === 'index.html' || href === '#' || href === 'index.html?page=home')) {
+                    link.classList.add('active');
+                } else if(page === 'politica' && href && href.includes('politica')) {
+                    link.classList.add('active');
+                } else if(page === 'termos' && href && href.includes('termos')) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // Detectar parâmetro na URL
+        function getPageFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const page = urlParams.get('page');
+            if(page === 'politica') return 'politica';
+            if(page === 'termos') return 'termos';
+            return 'home';
+        }
+        
+        // Modificar links para manter roteamento
+        function setupLinks() {
+            const links = document.querySelectorAll('.navbar-nav .nav-link, .footer-link');
+            links.forEach(link => {
+                const originalHref = link.getAttribute('href');
+                if(originalHref && (originalHref.includes('politica') || originalHref.includes('termos') || originalHref === 'index.html')) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        let page = 'home';
+                        if(originalHref.includes('politica')) page = 'politica';
+                        else if(originalHref.includes('termos')) page = 'termos';
+                        window.history.pushState({}, '', `?page=${page}`);
+                        showPage(page);
+                    });
+                }
+            });
+        }
+        
+        // Aguardar carregamento do DOM
+        window.addEventListener('DOMContentLoaded', function() {
+            // Criar as divs de política e termos se não existirem
+            if(!document.getElementById('politica-page')) {
+                const politicaHtml = `<!-- PÁGINA POLÍTICA DE PRIVACIDADE -->
+                <div id="politica-page" style="display:none;">
+                    <section class="content-page">
+                        <div class="container">
+                            <div class="content-card">
+                                <h1 class="mb-4" style="color:#2c3e50;"><i class="fas fa-shield-alt me-2" style="color:#e67e22;"></i>Política de Privacidade</h1>
+                                <p><strong>Última atualização:</strong> 24 de março de 2025</p>
+                                <p>A <strong>Angela Maria de Sousa Oliveira</strong>, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº 36.445.173/0001-60, localizada na Rua E 191, Primavera II, Paracatu/MG, CEP 38600-970, valoriza a privacidade e a proteção dos dados pessoais de seus clientes, visitantes e usuários.</p>
+                                
+                                <h2>1. Coleta de Informações</h2>
+                                <p>Coletamos dados pessoais como nome, e-mail, telefone e endereço para fins de cadastro, prestação de serviços de internet, suporte técnico e comunicações relacionadas. Também podem ser coletados dados de navegação para melhorar a experiência no site.</p>
+                                
+                                <h2>2. Uso das Informações</h2>
+                                <p>Os dados são utilizados para: (i) execução de serviços contratados; (ii) atendimento de solicitações; (iii) envio de informações sobre planos e atualizações; (iv) cumprimento de obrigações legais.</p>
+                                
+                                <h2>3. Compartilhamento de Dados</h2>
+                                <p>Não compartilhamos seus dados pessoais com terceiros, exceto quando necessário para a prestação dos serviços (parceiros técnicos) ou por determinação legal.</p>
+                                
+                                <h2>4. Segurança</h2>
+                                <p>Adotamos medidas técnicas e organizacionais para proteger os dados contra acessos não autorizados, perdas ou violações.</p>
+                                
+                                <h2>5. Seus Direitos</h2>
+                                <p>Você pode solicitar a correção, exclusão ou portabilidade dos seus dados entrando em contato pelo e-mail contato@angelatech.com.br ou telefone (38) 99925-2276.</p>
+                                
+                                <h2>6. Cookies</h2>
+                                <p>Este site utiliza cookies para melhorar a navegação e coletar estatísticas anônimas. Você pode configurar seu navegador para recusá-los.</p>
+                                
+                                <div class="back-home mt-4">
+                                    <a href="?page=home" class="btn btn-outline-custom"><i class="fas fa-arrow-left me-2"></i>Voltar para Home</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>`;
+                document.body.insertAdjacentHTML('beforeend', politicaHtml);
+            }
+            
+            if(!document.getElementById('termos-page')) {
+                const termosHtml = `<!-- PÁGINA TERMOS DE USO -->
+                <div id="termos-page" style="display:none;">
+                    <section class="content-page">
+                        <div class="container">
+                            <div class="content-card">
+                                <h1 class="mb-4" style="color:#2c3e50;"><i class="fas fa-file-contract me-2" style="color:#e67e22;"></i>Termos de Uso</h1>
+                                <p><strong>Última atualização:</strong> 24 de março de 2025</p>
+                                <p>Estes Termos de Uso regulamentam o acesso e a utilização do site e serviços oferecidos por <strong>Angela Maria de Sousa Oliveira</strong> (CNPJ: 36.445.173/0001-60).</p>
+                                
+                                <h2>1. Aceitação dos Termos</h2>
+                                <p>Ao acessar nosso site e contratar nossos serviços, você declara estar ciente e de acordo com todas as condições aqui estabelecidas.</p>
+                                
+                                <h2>2. Serviços Prestados</h2>
+                                <p>Oferecemos serviços de provedor de internet, suporte técnico e consultoria digital. As condições específicas de cada plano são detalhadas no momento da contratação.</p>
+                                
+                                <h2>3. Responsabilidades do Usuário</h2>
+                                <p>O usuário compromete-se a utilizar os serviços de forma ética e legal, respeitando as leis brasileiras. É proibido o uso para atividades ilícitas ou que violem direitos de terceiros.</p>
+                                
+                                <h2>4. Cancelamento e Rescisão</h2>
+                                <p>O cliente pode solicitar o cancelamento dos serviços a qualquer momento, mediante comunicação formal. Aplica-se as regras de fidelidade e multas conforme contrato vigente.</p>
+                                
+                                <h2>5. Limitação de Responsabilidade</h2>
+                                <p>Não nos responsabilizamos por danos indiretos decorrentes de uso inadequado dos serviços ou eventos de força maior (interrupções externas, fenômenos naturais).</p>
+                                
+                                <h2>6. Alterações nos Termos</h2>
+                                <p>Reservamo-nos o direito de modificar estes Termos a qualquer momento. As alterações serão publicadas neste site e entrarão em vigor na data indicada.</p>
+                                
+                                <h2>7. Foro</h2>
+                                <p>Fica eleito o foro da comarca de Paracatu - MG para dirimir quaisquer controvérsias oriundas destes Termos.</p>
+                                
+                                <div class="back-home mt-4">
+                                    <a href="?page=home" class="btn btn-outline-custom"><i class="fas fa-arrow-left me-2"></i>Voltar para Home</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>`;
+                document.body.insertAdjacentHTML('beforeend', termosHtml);
+            }
+            
+            const page = getPageFromUrl();
+            showPage(page);
+            setupLinks();
+            
+            // Lidar com botão voltar/avançar do navegador
+            window.addEventListener('popstate', function() {
+                const newPage = getPageFromUrl();
+                showPage(newPage);
+            });
+        });
+    })();
 </script>
 </body>
 </html>
